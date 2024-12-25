@@ -8,12 +8,16 @@ html, body {
 }
   
 .header {text-align: center; margin: 30px 0;}
-.social a img { height: 1.5em; }
 
 .social { 
-    position: absolute;
-    top: 50px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    top: 450px;
     width: 100%;
+    height: 100%;
 }
 
 .social button {
@@ -76,6 +80,6 @@ svg {
 
 .draw_container {
     position: absolute;
-    top: 150px;
+    top: 50px;
     width: 100%;
 }
