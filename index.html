@@ -164,14 +164,76 @@
             </div>
         </div>
             <div class="social">
-                <button class="wish-button" onclick="sendWish('Chúc bạn luôn thành công và hạnh phúc!')">Lời muốn nói</button>
-                <button class="wish-button" onclick="sendWish('Chúc bạn một ngày tốt lành!')">Nhận lời chúc</button>
-                <button class="wish-button" onclick="sendWish('Chúc bạn luôn thành công và hạnh phúc!')">???</button>
+                <button class="wish-button" onclick="showPopup('popup2')">Nhận Lời Chúc</button>
+                <button class="wish-button" onclick="showPopup('popup1')">Lời nhắc</button>
+                <button class="wish-button" onclick="showPopup('popup3')">Quà (???)</button>
             </div>
     </div>
         
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="main.js"></script>
+        <!-- Popup -->
+   <div id="popup1" class="popup">
+    <button class="close" onclick="hidePopup('popup1')">×</button>
+    <p>
+        "Em làm nhiều, nhớ chú ý tới sức khỏe của mình nhé.
+        Đồng ý là đi làm về mệt, thì nằm nghỉ trước một chút. 
+        Nhưng mà vẫn nên dậy ăn một chút, 
+        thì cơ thể mới có năng lượng để mà hồi phục chứ đúg hog nè."
+        <br><br>
+        "Em làm nhiều, nhớ chú ý tới sức khỏe của mình nhé.
+        Đồng ý là đi làm về mệt, thì nằm nghỉ trước một chút. 
+        Nhưng mà vẫn nên dậy ăn một chút, 
+        thì cơ thể mới có năng lượng để mà hồi phục chứ đúg hog nè."
+        <br><br>
+        "Em làm nhiều, nhớ chú ý tới sức khỏe của mình nhé.
+        Đồng ý là đi làm về mệt, thì nằm nghỉ trước một chút. 
+        Nhưng mà vẫn nên dậy ăn một chút, 
+        thì cơ thể mới có năng lượng để mà hồi phục chứ đúg hog nè."
+        <br><br><br>
+        Cái gì quan trọng thì nhắc 3 lần nhé :))))
+
+    </p>
+    </div>
+    <div id="popup2" class="popup">
+        <button class="close" onclick="hidePopup('popup2')">×</button>
+        <p>
+            "Tuy hơi muộn màng nhưng mà giáng sinh đến rồi, 
+            anh chúc em có những khoảnh khắc thật vui vẻ, 
+            và hạnh phúc bên cạnh bạn bè và gia đình của mình."
+
+            <br><br> Merry Christmas! 🎄✨
+        </p>
+    </div>
+    <div id="popup3" class="popup">
+        <button class="close" onclick="hidePopup('popup3')">×</button>
+        <p>Ở dưới nhà nha!</p>
+    </div>
+
+    <div id="overlay" class="overlay" onclick="hideAllPopups()"></div>
+    
+        <script>
+            function showPopup(id) {
+                document.getElementById(id).style.display = 'block';
+                document.getElementById(id).classList.add('show');
+                document.getElementById('overlay').classList.add('show');
+            }
+   
+           function hidePopup(id) {
+                document.getElementById(id).classList.remove('show');
+                document.getElementById(id).style.display = 'none';
+                document.getElementById('overlay').classList.remove('show');
+           }
+   
+           function hideAllPopups() {
+               const popups = document.querySelectorAll('.popup');
+               popups.forEach(popup => {
+                popup.classList.remove('show')
+                   popup.style.display = 'none';
+                } );
+               document.getElementById('overlay').classList.remove('show');
+           }
+        </script>
         <script>
             // Đảm bảo hàm trong phạm vi toàn cục
             window.sendWish = function(message) {
